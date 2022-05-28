@@ -1,12 +1,18 @@
 import java.util.Stack;
-
 public class BinaryTree {
     public TreeNode root;
-    public int size;
+    public static int size;
+
 
     public BinaryTree() {
+        super();
         root = null;
         size = 0;
+    }
+
+    public BinaryTree(TreeNode root, int size) {
+        this.root = root;
+        this.size = size;
     }
 
     private TreeNode createNewNode(int e) {
@@ -39,7 +45,6 @@ public class BinaryTree {
         return true;
     }
 
-
     public void inOrderWithoutRecursion() {
         Stack nodes = new Stack<>();
         TreeNode current = root;
@@ -53,5 +58,12 @@ public class BinaryTree {
                 current = node.getRight();
             }
         }
+    }
+
+    public BinaryTree print() {
+        for (int i = 0; i < BinaryTree.size; i++) {
+            System.out.println(root.getValue());
+        }
+        return null;
     }
 }

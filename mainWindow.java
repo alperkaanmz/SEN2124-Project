@@ -25,7 +25,6 @@ public class mainWindow extends javax.swing.JFrame {
             }
         });
     }
-
     static int totalScore = 0;
 
     public mainWindow() {
@@ -209,10 +208,15 @@ public class mainWindow extends javax.swing.JFrame {
 
         JButton btnOk = new JButton("OK");
         btnOk.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent totalScore) {
+                Person begum = new Person("Begüm", realScore());
+                Person ecem = new Person("Ecem", realScore());
+                Person alper = new Person("Alper", realScore());
+
                 new newWindow().setVisible(true);
             }
         });
+
         btnOk.setBackground(Color.GREEN);
         btnOk.setBounds(131, 400, 157, 66);
         contentPane.add(btnOk);
@@ -223,6 +227,7 @@ public class mainWindow extends javax.swing.JFrame {
                 System.exit(0);
             }
         });
+
         btnCancel.setBackground(Color.RED);
         btnCancel.setBounds(367, 400, 157, 66);
         contentPane.add(btnCancel);
@@ -231,17 +236,19 @@ public class mainWindow extends javax.swing.JFrame {
     public static String totalScore() {
         return "Total score of the applicant's: " + totalScore;
     }
-
+    public static int realScore(){
+        return totalScore;
+    }
     public static String scores() {
-        if (totalScore == 60)
-            return "Beg�m has bachelor's degree.\n"
+        if (totalScore >= 0 && totalScore <= 33)
+            return "Begüm has bachelor's degree.\n"
                     + "She has internship experience.\n"
                     + "She can implement Java.\n"
                     + "She has experience on React Native and Flutter.\n"
                     + "She can implement Python.\n"
                     + "She has experience on Project Management.";
 
-        if (totalScore == 70)
+        if (totalScore >= 34 && totalScore <= 66)
             return "Ecem has bachelor's degree.\n"
                     + "She has internship experience.\n"
                     + "She can implement Java.\n"
@@ -250,7 +257,7 @@ public class mainWindow extends javax.swing.JFrame {
                     + "She has experience on React Native and Flutter.\n"
                     + "She can implement Python.";
 
-        if (totalScore == 50)
+        if (totalScore >= 67 && totalScore <= 100)
             return "Alper has bachelor's degree.\n"
                     + "He has internship experience.\n"
                     + "He has experience on React Native and Flutter.\n"
